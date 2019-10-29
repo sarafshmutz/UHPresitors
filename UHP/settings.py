@@ -55,7 +55,7 @@ ROOT_URLCONF = 'UHP.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['C:\\Users\\luis-pc\\Envs\\myproject\\UHP\\customermanage'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,8 +76,14 @@ WSGI_APPLICATION = 'UHP.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'customermanage',
+        'USER':'root',
+        'PASSWORD':'abcd1234',
+        'HOST':'127.0.0.1',
+        'PORT':'3306',
+
+
     }
 }
 

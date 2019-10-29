@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %} Index {% endblock %}
+{% block body %}
+ <h1>Uhp  resistors</h1>
+ <p>Customer </p>
+
+ {% for item in object_list %}
+  <p>"first name: {{item.first_name}}"</p>
+   <p>"last name: {{item.last_name}}"</p>
+  {%endfor %}
+    
+{% endblock %}
