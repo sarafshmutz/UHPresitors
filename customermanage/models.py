@@ -14,6 +14,8 @@ class Purchase_order(models.Model):
     type=models.CharField(max_length=30)
     amount=models.IntegerField(max_length=10)
     price_per_unit=models.FloatField()
+    #def __str__(self):
+     #   return self.name
 
 
 

@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  {% block title %}<title>Local Library</title>{% endblock %}
+<style>
+h1{
+	text-align:center;
+}
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  {% block head %}
+ <title>{% block title %}{% endblock %}</title>
+ {% endblock %}
 </head>
 
 <body>
+<div>
+  <h1> UHP RESISTORS</h1>
+ </div>
   {% block body%} 
+  
   {% endblock %}
 </body>
 </html>

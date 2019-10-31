@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css"/>
+ 
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
+
+<style>
+	h1{
+ 		text-align:center; 
+
+	 }
+	table {
+ 		text-align:center; 
+ 		 }
+</style>
+{% block title %}Uhp resistors {% endblock %}
+{% block body %}
+
+
+<table>
+  <tr >
+  
+    <th>First Name </th>
+    <th>Last Name</th>
+    <th>email</th>
+    <th>phone number</th>
+  </tr>
+   
+   {% for item in object_list %}
+  <tr>
+    <td >{{item.first_name}}</td>
+    <td>{{item.last_name}}</td>
+    <td>{{item.email}}</td>
+    <td>{{item.telephone}}</td>
+    </tr>
+</table>
+    {%endfor %}
+<table>
+  <tr >
+  
+    <th>Purchase number </th>
+    <th>date of order</th>
+    <th>date of delivery</th>
+    <th>type</th>
+    <th>amount</th>
+    <th>price per unit</th>
+  </tr>
+   
+   {% for item in product_list %}
+  <tr>
+    
+    <td >{{item.Purchase_number}}</td>
+    <td>{{item.date_of_order}}</td>
+    <td>{{item.date_of_supply}}</td>
+    <td>{{item.type}}</td>
+    <td>{{item.amount}}</td>
+    <td>{{item.price_per_unit}}</td>
+  </tr>
+ </table>
+    {%endfor %}
+ {% endblock %}

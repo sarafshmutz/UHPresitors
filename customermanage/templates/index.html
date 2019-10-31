@@ -1,8 +1,7 @@
 {% extends "base.html" %}
-{% block title %} Index {% endblock %}
-{% block body %}
+
 <style>
- table#table1 {
+div{
     width:70%; 
     margin-left:15%; 
     margin-right:15%;
@@ -15,35 +14,41 @@
  	text-align:center;
 
  }
- </style>
-<script>
+ div{
+ 	text-align:center;
+ }
 
-function handler(event){
-	
-  alert("works")
-}
-</script>>
- <h1>Uhp  resistors</h1>
- <p id=p1>Customers </p>
- <table id=table1>
-  <tr >
+ </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script>
+ script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+ <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+{% block title %}{% endblock %}
+{% block body %}
+ <h1 id=p1>Customers </h1>
+<div>
+	<form action="{% url 'search_results' %}" method="get">
+  			<select name="search parameter" id="effectTypes">
+ 				<option value="1">Customer first name</option>
+        		<option value="2">Customer last name</option>
+       			<option value="3">Order number </option>
+    </form>
+</dib>      
+
+<div>
+
+
+  		<form action="{% url 'search_results' %}" method="get">
+  	
+  		<label for ="q">Customer</lablel>
+  		<input name="q" type="text" placeholder="Search...">
+  		<input type="submit" value="Search">
+  		</form>
+</div>
+
+ {% endblock %}
+
   
-    <th>First Name </th>
-    <th>Last Name</th>
-    <th>email</th>
-    <th>phone number</th>
-  </tr>
-  
-   {% for item in object_list %}
-    <tr onmouseover="handler()">
-    <td >{{item.first_name}}</td>
-    <td>{{item.last_name}}</td>
-    <td>{{item.email}}</td>
-    <td>{{item.telephone}}</td>
-    </tr>
-    {%endfor %}
-  
-</table>
- 
-    
-{% endblock %}
