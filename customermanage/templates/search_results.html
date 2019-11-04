@@ -1,22 +1,39 @@
 {% extends "base.html" %}
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css"/>
- 
-<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
+{% block head %}
+<script src= "https://code.jquery.com/jquery-3.3.1.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+<script>
+$(document).ready( function () {
+    $("#t1").DataTable(
+{
+	"searching": false
+}    );
 
-<style>
-	h1{
- 		text-align:center; 
+} );
 
-	 }
-	table {
- 		text-align:center; 
- 		 }
-</style>
-{% block title %}Uhp resistors {% endblock %}
+</script>
+
+
+<script>
+$(document).ready( function () {
+    $("#t2").DataTable(
+{
+	"searching": false
+}    );
+
+} );
+
+</script>
+
+{% endblock %}
+
+
 {% block body %}
 
 
-<table>
+<table id ="t1">
+<thead>
   <tr >
   
     <th>First Name </th>
@@ -24,7 +41,8 @@
     <th>email</th>
     <th>phone number</th>
   </tr>
-   
+ </thead>
+ <tbody>
    {% for item in object_list %}
   <tr>
     <td >{{item.first_name}}</td>
@@ -32,9 +50,11 @@
     <td>{{item.email}}</td>
     <td>{{item.telephone}}</td>
     </tr>
+   </tbody>
 </table>
     {%endfor %}
-<table>
+<table id ="t2" >
+<thead>
   <tr >
   
     <th>Purchase number </th>
@@ -44,17 +64,19 @@
     <th>amount</th>
     <th>price per unit</th>
   </tr>
-   
+ </thead>
+ <tbody>  
    {% for item in product_list %}
   <tr>
     
-    <td >{{item.Purchase_number}}</td>
+    <td >{{item.purchase_number}}</td>
     <td>{{item.date_of_order}}</td>
     <td>{{item.date_of_supply}}</td>
     <td>{{item.type}}</td>
     <td>{{item.amount}}</td>
     <td>{{item.price_per_unit}}</td>
   </tr>
+  </tbody>
  </table>
     {%endfor %}
  {% endblock %}

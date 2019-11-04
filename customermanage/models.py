@@ -8,12 +8,14 @@ class Customer(models.Model):
 	telephone=models.CharField(max_length=30)
 
 class Purchase_order(models.Model):
-    Purchase_number=models.ForeignKey(Customer, on_delete=models.CASCADE)
-    date_of_order=models.CharField(max_length=30)
-    date_of_supply=models.CharField(max_length=30)
+    
+    Customer_number=models.ForeignKey(Customer, on_delete=models.CASCADE)
+    date_of_order=models.DateField()
+    date_of_supply=models.DateField()
     type=models.CharField(max_length=30)
-    amount=models.IntegerField(max_length=10)
+    amount=models.IntegerField()
     price_per_unit=models.FloatField()
+    purchase_number=models.CharField(max_length=30,default=1)
     #def __str__(self):
      #   return self.name
 

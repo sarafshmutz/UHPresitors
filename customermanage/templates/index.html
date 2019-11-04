@@ -1,5 +1,11 @@
 {% extends "base.html" %}
+{% block head %}
 
+<script>
+if ({{toggle}}==5){
+alert("the order is immanent")
+}
+</script>
 <style>
 div{
     width:70%; 
@@ -19,22 +25,21 @@ div{
  }
 
  </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-<script>
- script src="https://code.jquery.com/jquery-1.12.4.js"></script>
- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
+ 
 
 {% block title %}{% endblock %}
+{% endblock %}
+
 {% block body %}
- <h1 id=p1>Customers </h1>
+<h1>the date is {{d}}</h1>
+ <h1 id=p1>Search parameters </h1>
+ <body background="bgimage.jpg">
 <div>
 	<form action="{% url 'search_results' %}" method="get">
   			<select name="search parameter" id="effectTypes">
  				<option value="1">Customer first name</option>
         		<option value="2">Customer last name</option>
-       			<option value="3">Order number </option>
+       			<option value="3">Purchase  number </option>
     </form>
 </dib>      
 
@@ -47,6 +52,16 @@ div{
   		<input name="q" type="text" placeholder="Search...">
   		<input type="submit" value="Search">
   		</form>
+</div>
+
+<div>
+
+<h1> Price finder</h1>
+<form action="/your-name/" method="post">
+    {% csrf_token %}
+    {{ form.as_p}}
+    <input type="submit" value="Submit">
+</form>
 </div>
 
  {% endblock %}
