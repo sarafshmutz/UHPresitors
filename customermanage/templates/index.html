@@ -1,16 +1,43 @@
 {% extends "base.html" %}
 {% block head %}
-
 <script>
 if ({{toggle}}==5){
 alert("the order is immanent")
 }
 </script>
 <style>
+input[type=text], select {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=number], select {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=submit] {
+  width: 80%;
+  background-color:   #0000CD;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 div{
     width:70%; 
-    margin-left:15%; 
-    margin-right:15%;
+    margin-left:auto; 
+    margin-right:auto;
   }
  p {
  	text-align:center;
@@ -31,7 +58,7 @@ div{
 {% endblock %}
 
 {% block body %}
-<h1>the date is {{d}}</h1>
+<h1>The date is {{d}}</h1>
  <h1 id=p1>Search parameters </h1>
  <body background="bgimage.jpg">
 <div>
@@ -57,10 +84,10 @@ div{
 <div>
 
 <h1> Price finder</h1>
-<form action="/your-name/" method="post">
+<form id= "form1" action="" method="POST">
     {% csrf_token %}
-    {{ form.as_p}}
-    <input type="submit" value="Submit">
+    {{ form.as_p }}
+    <input type="submit" value="Search">
 </form>
 </div>
 

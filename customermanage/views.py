@@ -6,16 +6,36 @@ from django.views.generic import TemplateView, ListView
 from django.db.models import Q
 from datetime import date
 from datetime import timedelta
-from .forms import ModelForm
+from .forms import ModelForm1
+from .forms import CustomerForm,PurchaseForm
 
 # Create your views here.
 
+def create(request):
+    form1=CustomerForm(request.POST or None)
+  
+    form2=PurchaseForm(request.POST or None)
+    if form1.is_valid():
+            form1.save()
+    
+   # save.save()
+
+    context={"form1":form1,"form2":form2}
+    #print(context)
+    return render(request, 'create.html', context)
+
+
 def index(request):
+
     
     d = date.today()
     enddate = d + timedelta(days=6)
-    form=ModelForm()
-
+    form=ModelForm1(request.POST or None)
+    for item in form.visible_fields():
+    	print(item)
+    if form.is_valid():
+    	print(form.cleaned_data)
+    	print(form.cleaned_data.get("Amount"))
     product_list=Purchase_order.objects.filter(date_of_supply__gte=enddate)
     if product_list.exists():
         toggle =5

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block head %}
+<style>
+div{
+    width:70%; 
+    margin-left:auto; 
+    margin-right:auto;
+  }
+input[type=text], select {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=number], select {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=submit] {
+  width: 80%;
+  background-color:   #0000CD;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+</style
+{% endblock %}
+
+{% block body %}
+<h1> Create Customer</h1>
+<div>
+<form class="CustomerForm" action="" method="post">
+    {% csrf_token %}
+    {{form1}}
+    <input type="submit" value="Create">
+</form>
+
+<h1> Create order</h1>
+<form class="CustomerForm" action="" method="post">
+    {% csrf_token %}
+    {{form2}}
+    <input type="submit" value="Create">
+</form>
+</div>
+
+ {% endblock %}
+
+
