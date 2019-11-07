@@ -13,10 +13,11 @@ from .forms import CustomerForm,PurchaseForm
 
 def create(request):
     form1=CustomerForm(request.POST or None)
-  
-    form2=PurchaseForm(request.POST or None)
     if form1.is_valid():
             form1.save()
+    form2=PurchaseForm(request.POST or None)
+    if form2.is_valid():
+            form2.save()
     
    # save.save()
 

@@ -1,56 +1,156 @@
 {% extends "base.html" %}
 {% block head %}
+<script>
+function openForm1() {
+  	document.getElementById("CustomerForm").style.display = "block";
+}
+
+function closeForm1() {
+ 	document.getElementById("CustomerForm").style.display = "none";
+}
+
+function openForm2() {
+  	document.getElementById("PurchaseForm").style.display = "block";
+}
+
+function closeForm2() {
+ 	document.getElementById("PurchaseForm").style.display = "none";
+}
+</script>
 <style>
-div{
-    width:70%; 
-    margin-left:auto; 
-    margin-right:auto;
-  }
-input[type=text], select {
-  width: 80%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+
+.form2{
+  float:right;
+  width:40%;
+
+  display: none;
+  width:50%;
+  position: absolute;
+
+  top: 200px ;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+
+
+
 }
-input[type=number], select {
-  width: 80%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+.form1 {
+  position: absolute;
+  display: none;
+  float:left;
+  width:40%;
+  top: 200px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
 }
-input[type=submit] {
-  width: 80%;
-  background-color:   #0000CD;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
   border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  background: #f1f1f1;
 }
+.form-container select{
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+
+.open-button1 {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position:fixed;
+  
+  left:50px;
+  top: 100px;
+}
+
+.open-button2 {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8; 
+  position:fixed;
+
+  right:50px;
+  top: 100px;
+}
+.form-container input[type=select]:focus {
+  background-color: #ddd;
+  outline: none;
+
+
+
+.form-container input[type=text]:focus {
+  background-color: #ddd;
+  outline: none;
+
+.form-container .cancel {
+  background-color: red;
+}
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
 </style
 {% endblock %}
 
 {% block body %}
-<h1> Create Customer</h1>
-<div>
-<form class="CustomerForm" action="" method="post">
+
+<button class="open-button1" onclick="openForm1()">Create Customer</button>
+
+
+<div class="form1" id="CustomerForm">
+<form class="form-container" action="" method="post">
     {% csrf_token %}
     {{form1}}
-    <input type="submit" value="Create">
+    <input  class="btn" type="submit" value="Create">
+       <button type="button" class="btn cancel" onclick="closeForm1()">Close</button>
 </form>
+</div>
 
-<h1> Create order</h1>
-<form class="CustomerForm" action="" method="post">
+
+<button class="open-button2" onclick="openForm2()">Create Order</button>
+<div class="form2" id="PurchaseForm" >
+<form class="form-container" action="" method="post">
     {% csrf_token %}
     {{form2}}
-    <input type="submit" value="Create">
+    <input type="submit" value="Create" class="btn">
+    <button type="button" class="btn cancel" onclick="closeForm2()">Close</button>
 </form>
 </div>
 
